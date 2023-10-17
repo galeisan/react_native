@@ -1,7 +1,7 @@
 import { StyleSheet, Button, Text, View } from "react-native";
 import { useEffect, useState } from "react";
 
-export default function TaskOne({ navigation }) {
+export default function TaskOneScreen({ navigation }) {
     const [pressedCount, setPressedCount] = useState(0);
     const [disabledCount, setCountDisabeled] = useState(false);
 

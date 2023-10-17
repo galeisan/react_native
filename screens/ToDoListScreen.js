@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import TodoLine from "../components/TodoLine";
 const Stack = createNativeStackNavigator();
 
-export default function ToDoList({ navigation }) {
+export default function ToDoListScreen({ navigation }) {
     return (
         <Stack.Navigator>
             <Stack.Screen name={'Todo'} component={Todo}/>

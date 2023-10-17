@@ -1,7 +1,7 @@
 import {StyleSheet, Button, Text, View, TextInput} from "react-native";
 import { useEffect, useState } from "react";
 
-export default function TaskTwo({ navigation }) {
+export default function TaskTwoScreen({ navigation }) {
     const [surname, setSurname] = useState('');
     const [showValue, setShowValue] = useState(false);
     const [name, setName] = useState('');

@@ -2,45 +2,68 @@ import React from 'react';
 import {View, Text, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native' ;
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import TaskOne from "./pages/TaskOne";
-import TaskTwo from "./pages/TaskTwo";
-import TaskThree from "./pages/TaskThree";
-import About from "./pages/About";
-import ToDoList from "./pages/ToDoList";
+import AboutScreen from "./screens/AboutScreen";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SettingsScreen from "./screens/SettingsScreen";
+import NewsScreen from "./screens/NewsScreen";
+import ChatScreen from "./screens/ChatScreen";
+import HomeScreen from "./screens/HomeScreen";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
-function HomeScreen({navigation}) {
+const TabNavigation = () => {
     return (
-        <View>
-            <Button onPress={() => navigation.navigate('Task One')}
-                    title="HW1.1"/>
-            <Button onPress={() => navigation.navigate('Task Two')}
-                    title="HW1.2"/>
-            <Button onPress={() => navigation.navigate('Task Three')}
-                    title="HW1.3"/>
-            <Button onPress={() => navigation.navigate('About')}
-                    title="HW2"/>
-            <Button onPress={() => navigation.navigate('ToDoList')}
-                    title="HW3"/>
-        </View>
+        <Tab.Navigator>
+            <Tab.Screen name="Home" component={HomeStack} options={{headerShown: false, tabBarIcon: ({ focused }) => (
+                    <Ionicons name="home"  size={28} />
+                ),}} />
+            <Tab.Screen name="News" component={NewsScreen} options={{
+                tabBarIcon: ({ focused }) => (
+                    <Ionicons name="newspaper"  size={28} />
+                ),
+            }}/>
+            <Tab.Screen name="Chat" component={ChatScreen} options={{
+                tabBarIcon: ({ focused }) => (
+                    <Ionicons name="chatbox" size={28} />
+                ),
+            }}/>
+            <Tab.Screen name="Settings" component={SettingsScreen} options={{
+                tabBarIcon: ({ focused }) => (
+                    <Ionicons name="server" size={28} />
+                ),
+            }}/>
+        </Tab.Navigator>
     );
 }
-
-function App() {
+const HomeStack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name={'HomeScreen'}
+                component={HomeScreen}
+                options={(props) => ({
+                    headerTitle: (props) => <Ionicons name="home"  size={28} />,
+                    headerRight: () => (
+                        <Button
+                            onPress={() => props.navigation.navigate('About')}
+                            title="О приложении"
+                            color="#000"
+                        />)
+                })}
+            />
+            <Stack.Screen name={'About'} component={AboutScreen} initialParams={{ itemId: 42 }} />
+        </Stack.Navigator>
+    );
+}
+export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name={'Home'} component={HomeScreen}/>
-                <Stack.Screen name={'About'} component={About}/>
-                <Stack.Screen name={'ToDoList'} component={ToDoList}/>
-                <Stack.Screen name={'Task One'} component={TaskOne}/>
-                <Stack.Screen name={'Task Two'} component={TaskTwo}/>
-                <Stack.Screen name={'Task Three'} component={TaskThree}/>
+                <Stack.Screen name={'Tab'} component={TabNavigation} options={{headerShown: false}} />
+                <Stack.Screen name={'AboutScreen'} component={AboutScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
-    );
+    )
 }
-
-export default App;
