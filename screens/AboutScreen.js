@@ -1,6 +1,6 @@
 import {StyleSheet, Button, Text, View, TextInput} from "react-native";
 
-export default function AboutScreen({ navigation }) {
+export const AboutScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>

@@ -2,12 +2,12 @@ import React from 'react';
 import {View, Text, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native' ;
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import AboutScreen from "./screens/AboutScreen";
+import {AboutScreen} from "./screens/AboutScreen";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SettingsScreen from "./screens/SettingsScreen";
 import NewsScreen from "./screens/NewsScreen";
 import ChatScreen from "./screens/ChatScreen";
-import HomeScreen from "./screens/HomeScreen";
+import {HomeScreen} from "./screens/HomeScreen";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
