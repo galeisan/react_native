@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import {Button, StyleSheet, Text, View, TouchableOpacity, TextInput, FlatList, SafeAreaView} from 'react-native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import TodoLine from "../components/TodoLine";
+import TodoLine from "../components/TodoItem";
 const Stack = createNativeStackNavigator();
 
 export default function ToDoListScreen({ navigation }) {

@@ -5,10 +5,11 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {AboutScreen} from "./screens/AboutScreen";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SettingsScreen from "./screens/SettingsScreen";
-import NewsScreen from "./screens/NewsScreen";
+import TodoScreen from "./screens/TodoScreen";
 import ChatScreen from "./screens/ChatScreen";
 import {HomeScreen} from "./screens/HomeScreen";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import CompletedTodoScreen from "./screens/CompletedTodoScreen";
 
 
 const Tab = createBottomTabNavigator();
@@ -19,7 +20,7 @@ const TabNavigation = () => {
             <Tab.Screen name="Home" component={HomeStack} options={{headerShown: false, tabBarIcon: ({ focused }) => (
                     <Ionicons name="home"  size={28} />
                 ),}} />
-            <Tab.Screen name="News" component={NewsScreen} options={{
+            <Tab.Screen name="Todo" component={TodoScreen} options={{
                 tabBarIcon: ({ focused }) => (
                     <Ionicons name="newspaper"  size={28} />
                 ),
@@ -63,6 +64,7 @@ export default function App() {
             <Stack.Navigator>
                 <Stack.Screen name={'Tab'} component={TabNavigation} options={{headerShown: false}} />
                 <Stack.Screen name={'AboutScreen'} component={AboutScreen}/>
+                <Stack.Screen name={'Completed'} component={CompletedTodoScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

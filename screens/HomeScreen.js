@@ -63,11 +63,11 @@ export const HomeScreen = observer(() => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
-                {clickerStore.clickerModel && !clickerStore.setIsLoading ? (
-                    <Text>{clickerStore.clickerModel.count}</Text>
-                ) : (
-                    <ActivityIndicator/>
-                )}
+                {/*{clickerStore.clickerModel && !clickerStore.setIsLoading ? (*/}
+                {/*    <Text>{clickerStore.clickerModel.count}</Text>*/}
+                {/*) : (*/}
+                {/*    <ActivityIndicator/>*/}
+                {/*)}*/}
                 <Button onPress={handleOnClick} title={'Click me'} />
             </View>
         </SafeAreaView>
