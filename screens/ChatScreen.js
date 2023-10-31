@@ -1,30 +1,35 @@
-import { StyleSheet, Button, Text, View } from "react-native";
+import {ActivityIndicator, ScrollView, Text, View} from 'react-native';
+import axios from 'axios';
+import {useEffect, useState} from "react";
+import {ListItem} from "react-native-elements";
 
-export default function ChatScreen({ navigation }) {
+export const axiosClient = axios.create({
+    baseURL: 'https://jsonplaceholder.typicode.com',
+    timeout: 1000
+})
+
+
+export default function ChatScreen({ }) {
+    const [news, setNews] = useState([])
+
+    useEffect(()=>{
+        axiosClient
+            .get("/todos")
+            .then(res => setNews(res.data))
+            .finally(() => console.log('done'));
+    }, [])
+
 
     return (
-        <View style={styles.container}>
-            <Text>Chat</Text>
-        </View>
-    );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    bottom: {
-        flex: 1,
-        justifyContent: 'flex-end',
-    },
-    btn: {
-        width: '100%',
-        height: 50,
-        backgroundColor: 'red',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+        <ScrollView style={{flex: 1, flexDirection: "column"}}>
+            {news ?
+                news.map((item, i) =>
+                    <ListItem key={i}>
+                        <Text>{item.title}</Text>
+                    </ListItem>)
+                :
+                <ActivityIndicator/>
+            }
+        </ScrollView>
+    )
+}
