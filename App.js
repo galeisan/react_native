@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native' ;
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {AboutScreen} from "./screens/AboutScreen";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import SettingsScreen from "./screens/SettingsScreen";
+import {CommentsScreen} from "./screens/CommentsScreen";
 import TodoScreen from "./screens/TodoScreen";
 import ChatScreen from "./screens/ChatScreen";
 import {HomeScreen} from "./screens/HomeScreen";
@@ -30,7 +30,7 @@ const TabNavigation = () => {
                     <Ionicons name="chatbox" size={28} />
                 ),
             }}/>
-            <Tab.Screen name="Settings" component={SettingsScreen} options={{
+            <Tab.Screen name="Comments" component={CommentsScreen} options={{
                 tabBarIcon: ({ focused }) => (
                     <Ionicons name="server" size={28} />
                 ),
