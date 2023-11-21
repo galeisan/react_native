@@ -7,7 +7,7 @@ import {useRootStore} from "../stores/useRootStore";
 const CompletedTodoScreen = observer(({navigation}) => {
     const {todoStore} = useRootStore();
 
-    const [todo, setTodo] = useState(todoStore.actionGetCompleted(todoStore.todoEntity.todoList) || []);
+    const [todo, setTodo] = useState(todoStore.actionGetCompleted(todoStore.todoModel.todoList) || []);
 
     useEffect(() => {
     }, [todo])

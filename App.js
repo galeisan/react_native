@@ -10,6 +10,8 @@ import ChatScreen from "./screens/ChatScreen";
 import {HomeScreen} from "./screens/HomeScreen";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CompletedTodoScreen from "./screens/CompletedTodoScreen";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Host } from 'react-native-portalize';
 
 
 const Tab = createBottomTabNavigator();
@@ -60,12 +62,16 @@ const HomeStack = () => {
 }
 export default function App() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name={'Tab'} component={TabNavigation} options={{headerShown: false}} />
-                <Stack.Screen name={'AboutScreen'} component={AboutScreen}/>
-                <Stack.Screen name={'Completed'} component={CompletedTodoScreen}/>
-            </Stack.Navigator>
-        </NavigationContainer>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <Host>
+                <NavigationContainer>
+                    <Stack.Navigator>
+                        <Stack.Screen name={'Tab'} component={TabNavigation} options={{headerShown: false}} />
+                        <Stack.Screen name={'AboutScreen'} component={AboutScreen}/>
+                        <Stack.Screen name={'Completed'} component={CompletedTodoScreen}/>
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </Host>
+        </GestureHandlerRootView>
     )
 }

@@ -8,7 +8,7 @@ export const TodoItem = observer(props => {
     const {todoStore} = useRootStore();
 
     useEffect(() => {
-    }, [todoStore.todoEntity.todoList[props.ind].completed])
+    }, [todoStore.todoModel.todoList[props.ind].completed])
 
     return (
         <View style={[styles.todoLine, props.el.completed ? styles.taskCompleted : styles.taskNotCompleted]}>

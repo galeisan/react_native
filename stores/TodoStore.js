@@ -2,7 +2,7 @@ import {makeAutoObservable} from "mobx";
 import TodoService from "../services/TodoService";
 
 export class TodoStore {
-    todoEntity = null;
+    todoModel = null;
 
     isLoading = false;
 
@@ -15,25 +15,26 @@ export class TodoStore {
 
     getTodoObjectFromService = () => {
         const model = this.todoService.getAndPrepareDataForStore();
-        this.setTodoEntity(model);
+        this.setTodoModel(model);
     }
 
     actionGetCompleted = (model) => {
         return this.todoService.getCompletedTodo(model);
     }
 
+
     actionAdd = (value) => {
         this.setIsLoading(true);
-        const model = this.todoService.addTodo(this.todoEntity, value);
-        this.setTodoEntity(model);
+        const model = this.todoService.addTodo(this.todoModel, value);
+        this.setTodoModel(model);
         this.setIsLoading(false)
     };
 
     actionChange = (index) => {
         this.setIsLoading(true);
 
-        const model = this.todoService.changeTodo(this.todoEntity, index);
-        this.setTodoEntity(model);
+        const model = this.todoService.changeTodo(this.todoModel, index);
+        this.setTodoModel(model);
         this.setIsLoading(false)
 
     };
@@ -41,16 +42,77 @@ export class TodoStore {
 
     actionDelete = (index) => {
         this.setIsLoading(true);
-        const model = this.todoService.deleteTodo(this.todoEntity, index);
-        this.setTodoEntity(model);
+        const model = this.todoService.deleteTodo(this.todoModel, index);
+        this.setTodoModel(model);
         this.setIsLoading(false)
     };
 
-    setTodoEntity = value => {
-        this.todoEntity = value;
+    setTodoModel = value => {
+        this.todoModel = value;
     }
 
     setIsLoading = value => {
         this.isLoading = value;
     }
+
 }
+
+// import {makeAutoObservable} from "mobx";
+// import ToDoService from "../services/ToDoService";
+//
+// export class ToDoStore {
+//     todoModel = null
+//
+//     isLoading = false;
+//
+//     todoService;
+//
+//     constructor() {
+//         makeAutoObservable(this);
+//         this.todoService = new ToDoService();
+//     }
+//
+//     getToDoObjectFromService = () => {
+//         const model = this.todoService.getAndPrepareDataForStore();
+//         this.setToDoModel(model);
+//     }
+//
+//     actionGetCompleted = () => {
+//         const completed = this.todoService.getCompletedToDo(this.todoModel);
+//         console.log(completed)
+//         return completed;
+//     }
+//
+//     actionAdd = (value) => {
+//         this.setIsLoading(true)
+//         const model = this.todoService.addToDo(this.todoModel, value)
+//         this.setToDoModel(model)
+//         console.log(this.todoModel)
+//         this.setIsLoading(false)
+//     };
+//
+//     actionChange = (index) => {
+//         this.setIsLoading(true);
+//         const model = this.todoService.changeToDo(this.todoModel, index);
+//         this.setToDoModel(model);
+//         console.log(this.todoModel)
+//         this.setIsLoading(false)
+//     };
+//
+//
+//     actionDelete = (index) => {
+//         this.setIsLoading(true);
+//         const model = this.todoService.deleteToDo(this.todoModel, index);
+//         this.setToDoModel(model);
+//         console.log(this.todoModel)
+//         this.setIsLoading(false)
+//     };
+//
+//     setToDoModel = value => {
+//         this.todoModel = value;
+//     }
+//
+//     setIsLoading = value => {
+//         this.isLoading = value;
+//     }
+// }
