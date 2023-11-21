@@ -168,7 +168,7 @@ import {useNavigation} from "@react-navigation/native";
 import {Portal} from "react-native-portalize";
 import {Modalize} from "react-native-modalize";
 
-const ToDoScreen = observer(({navigation: {navigate}}) => {
+const TodoScreen = observer(({navigation: {navigate}}) => {
     const navigation = useNavigation();
     const [text, setText] = useState('');
     const {todoStore} = useRootStore();
@@ -417,4 +417,4 @@ const styles = StyleSheet.create({
     ,
 });
 
-export default ToDoScreen;
+export default TodoScreen;

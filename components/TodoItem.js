@@ -12,7 +12,7 @@ export const TodoItem = observer(props => {
 
     return (
         <View style={[styles.todoLine, props.el.completed ? styles.taskCompleted : styles.taskNotCompleted]}>
-            <TouchableOpacity onPress={() => props.touchTodo(props.ind)}>
+            <TouchableOpacity onPress={() => props.touchHandler(props.ind)}>
                 <Text style={styles.texts}>{props.el.text}</Text>
             </TouchableOpacity>
             <Pressable onPress={() => props.deleteHandler(props.ind)}>
