@@ -1,7 +1,3 @@
-// export class TodoModel {
-//     todoList = [];
-// }
-
 export class TodoModel {
     todoList: ToDo[];
 }

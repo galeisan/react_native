@@ -1,5 +1,5 @@
-import ClickerRepository from "../repositories/ClickerRepository";
-import { ClickerModel } from '../models/ClickerModel';
+import ClickerRepository from "./ClickerRepository";
+import { ClickerModel } from './ClickerModel';
 
 export default class ClickerService {
     clickerRepository;

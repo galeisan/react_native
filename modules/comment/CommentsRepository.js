@@ -1,4 +1,4 @@
-import AxiosClient from "../api/AxiosClient";
+import AxiosClient from "../../api/AxiosClient";
 
 export default class CommentsRepository {
     apiClient = null;

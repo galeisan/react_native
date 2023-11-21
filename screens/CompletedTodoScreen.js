@@ -1,7 +1,7 @@
 import {Button, FlatList, StyleSheet, Text, View} from "react-native";
 import React, {useEffect, useState} from "react";
 import {observer} from "mobx-react";
-import {useRootStore} from "../stores/useRootStore";
+import {useRootStore} from "../hooks/useRootStore";
 
 
 const CompletedTodoScreen = observer(({navigation}) => {

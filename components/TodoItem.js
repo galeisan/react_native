@@ -1,7 +1,7 @@
 import {Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React, {useEffect} from "react";
 import {observer} from "mobx-react";
-import {useRootStore} from "../stores/useRootStore";
+import {useRootStore} from "../hooks/useRootStore";
 
 
 export const TodoItem = observer(props => {

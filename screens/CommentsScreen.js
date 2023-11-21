@@ -8,7 +8,7 @@ import {
     View
 } from "react-native";
 import {useEffect} from "react";
-import {useRootStore} from "../stores/useRootStore";
+import {useRootStore} from "../hooks/useRootStore";
 
 
 export const CommentsScreen = observer(({navigation}) => {

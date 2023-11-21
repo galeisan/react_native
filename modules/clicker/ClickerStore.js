@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import ClickerService from "../services/ClickerService";
+import ClickerService from "./ClickerService";
 
 export class ClickerStore {
 

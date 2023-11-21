@@ -1,7 +1,7 @@
 import React from "react";
-import {ClickerStore} from "./ClickerStore";
-import {TodoStore} from "./TodoStore";
-import {CommentsStore} from "./CommentsStore";
+import {ClickerStore} from "../modules/clicker/ClickerStore";
+import {TodoStore} from "../modules/todo/TodoStore";
+import {CommentsStore} from "../modules/comment/CommentsStore";
 
 class RootStore {
     clickerStore;

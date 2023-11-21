@@ -1,7 +1,7 @@
 import {StyleSheet, Button, Text, View, SafeAreaView, ActivityIndicator} from "react-native";
 import {observer} from "mobx-react";
-import {mobxClicker} from "../components/MobxClicker";
-import {useRootStore} from "../stores/useRootStore";
+import {mobxClicker} from "../modules/clicker/MobxClicker";
+import {useRootStore} from "../hooks/useRootStore";
 import {useEffect} from "react";
 
 

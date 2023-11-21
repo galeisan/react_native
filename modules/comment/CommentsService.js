@@ -1,5 +1,5 @@
-import CommentsRepository from "../repositories/CommentsRepository";
-import CommentModel from "../models/CommentModel";
+import CommentsRepository from "./CommentsRepository";
+import CommentModel from "./CommentModel";
 
 export default class CommentsService {
     commentsRepository;

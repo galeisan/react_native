@@ -1,6 +1,6 @@
 import {makeAutoObservable} from 'mobx';
-import CommentsService from "../services/CommentsService";
-import LocalRepository from "../repositories/LocalRepository";
+import CommentsService from "./CommentsService";
+import LocalRepository from "../../repositories/LocalRepository";
 
 export class CommentsStore {
     comments = [];
